@@ -34,11 +34,29 @@ class jogadores:
         else:
             self.y += self.velocidade
 
-class bola:
-    def __init__(self, x, y ,raio):
-        self.x = x
-        self.y = y
+class ball:
+    MAX_VEL = 5
+    cor = branco
+
+    def __init__(self, x, y, raio):
+        self.x = self.original_x = x
+        self.y = self.original_y = y
         self.raio = raio
+        self.x_vel = self.MAX_VEL
+        self.y_vel = 0
+
+    def jogo(self, win):
+        pygame.draw.circle(win, self.cor, (self.x, self.y), self.raio)
+
+    def move(self):
+        self.x += self.x_vel
+        self.y += self.y_vel
+
+    def reset(self):
+        self.x = self.original_x
+        self.y = self.original_y
+        self.y_vel = 0
+        self.x_vel *= -1
 
 def jogo(janelaJogo, players):
     janelaJogo.fill(preto)
