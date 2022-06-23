@@ -34,6 +34,12 @@ class jogadores:
         else:
             self.y += self.velocidade
 
+class bola:
+    def __init__(self, x, y ,raio):
+        self.x = x
+        self.y = y
+        self.raio = raio
+
 def jogo(janelaJogo, players):
     janelaJogo.fill(preto)
 
